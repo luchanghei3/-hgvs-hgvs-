@@ -1,0 +1,29 @@
+1. 映射文件：
+nano cancer_map.tsv
+biliary_tract_carcinoma	胆道癌
+bone_Ewing_sarcoma-peripheral_primitive_neuroectodermal_tumour	骨尤因瘤/外周原始神经外胚层肿瘤
+breast_carcinoma	乳腺癌
+cervix_carcinoma	宫颈癌
+endometrium_carcinoma	子宫内膜癌
+haematopoietic_and_lymphoid_tissue_haematopoietic_neoplasm	造血系统肿瘤
+haematopoietic_and_lymphoid_tissue_lymphoid_neoplasm	淋巴组织肿瘤
+kidney	肾癌
+large_intestine_carcinoma	大肠癌
+liver	肝癌
+lung_carcinoma	肺癌
+oesophagus_carcinoma	食管癌
+ovary_carcinoma	卵巢癌
+pancreas_carcinoma	胰腺癌
+prostate_carcinoma	前列腺癌
+skin	皮肤癌
+stomach_carcinoma	胃癌
+thyroid_carcinoma	甲状腺癌
+upper_aerodigestive_tract_carcinoma	上呼吸消化道癌
+urinary_tract_carcinoma	尿路癌
+
+
+2. 转换结果文件：
+variant_cancer_map.tsv
+
+awk -F'\t' 'NR==FNR {a[$1]=$2; next} {print $1 "\t" a[$2]}' cancer_map.tsv variant_cancer_map.tsv > variant_cancer_map_cn.tsv
+
