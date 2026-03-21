@@ -1,0 +1,16 @@
+README.md输入文件： 1. 检测者位点-1B.vcf - after conversion. vcf2hgvs
+2. cosmic 特异位点（分癌症种类存储） - 每个癌症的特异位点表
+输出文件：包含匹配位点，癌症种类的文件
+
+
+step 1 
+ awk 'NR>1 {print $11}' 1B.vcf > vcf.hgvs
+
+step 2
+ for f in *_unique_sites.tsv; do
+    cancer=$(basename "$f" _unique_sites.tsv)
+    awk -F'\t' -v c="$cancer" '
+    NR==FNR {a[$1]; next}
+    ($23 in a) {print $23 "\t" c}
+    ' vcf.hgvs "$f"
+done > variant_cancer_map.tsv
