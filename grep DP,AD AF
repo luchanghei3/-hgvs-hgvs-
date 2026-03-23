@@ -1,0 +1,8 @@
+# Iterate through each line of variant_cancer_map_cn.tsv (excluding header), extract the mutation description (col1), 
+# and use it to grep the corresponding line in 1B.vcf file.
+
+awk '{print $1}' variant_cancer_map_cn.tsv | while read mutation; do
+    grep -F "$mutation" 1B.vcf
+done
+
+sort cancer.vcf | uniq > sorted_cancer.vcf
