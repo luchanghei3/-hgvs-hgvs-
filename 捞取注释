@@ -1,1 +1,9 @@
 1. 根据hgvs捞取 Gene    Mutation type   Amino Acid Change       Cancer typeGenome AD：1， 12,  11
+
+for f in *_unique_sites.tsv; do
+    cancer=$(basename "$f" _unique_sites.tsv)
+    awk -F'\t' -v c="$cancer" '
+    NR==FNR {a[$1]; next}
+    ($23 in a) {print $0 "\t" c}
+    ' vcf.hgvs "$f"
+done > variant_cancer_map.allcol.tsv
