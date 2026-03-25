@@ -41,3 +41,15 @@ liuluchang@c1:~/processinput$ head variant_cancer_map.infocol.tsv
 
 33333333333333333333333333333333333333333333333333333333333333333333333333333333333
 
+
+liuluchang@c1:~/processinput$ awk 'NR==FNR {a[$1]; next} ($1 in a)' vcf.hgvs ../cosmic_by_chr/* > matched_cosmiccontrol.tsv
+liuluchang@c1:~/processinput$ head matched_cosmiccontrol.tsv
+10:g.43106392C>T        chr10:g.43106392C>T     21      1459446 1.4389022e-05
+10:g.95067333C>T        chr10:g.95067333C>T     1       1461858 6.8406097e-07
+11:g.32428592G>A        chr11:g.32428592G>A     53      1461558 3.6262673e-05
+11:g.64804780C>T        chr11:g.64804780C>T     2       1444782 1.3842919e-06
+11:g.65661805G>A        chr11:g.65661805G>A     3       1461270 2.0530087e-06
+11:g.69651233A>T        chr11:g.69651233A>T     1       1442898 6.9304968e-07
+11:g.108253990G>A       chr11:g.108253990G>A    5       1461688 3.4207026e-06
+
+
