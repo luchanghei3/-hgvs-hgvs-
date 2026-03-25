@@ -26,5 +26,18 @@ END {
 }' variant_cancer_map.allcol.tsv | sort 》 variant_cancer_map.infocol.tsv
 
 
+liuluchang@c1:~/processinput$ head variant_cancer_map.infocol.tsv
+10:g.121520021A>T       FGFR2   missense_variant        p.S71R,p.S210R,p.S299R,p.S184R
+10:g.43106392C>T        RET     missense_variant        p.T295M
+10:g.95067333C>T        CYP2C8  missense_variant        p.R49K,p.R119K,p.R17K,p.R33K
+11:g.108253990G>A       ATM     missense_variant        p.R692H
+11:g.108365151C>T       ATM     missense_variant        p.P2974S
+11:g.111358904G>A       POU2AF1 stop_gained     p.Q11*
+11:g.128911905G>A       KCNJ5   missense_variant        p.R211Q
+11:g.32428592G>A        WT1     missense_variant        p.T225M,p.T13M
+11:g.64804780C>T        MEN1    missense_variant        p.E463K,p.E468K,p.E408K,p.E428K
+11:g.65661805G>A        RELA    missense_variant        p.R73C
+
+
 33333333333333333333333333333333333333333333333333333333333333333333333333333333333
 
