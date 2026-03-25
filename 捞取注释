@@ -7,3 +7,24 @@ for f in *_unique_sites.tsv; do
     ($23 in a) {print $0 "\t" c}
     ' vcf.hgvs "$f"
 done > variant_cancer_map.allcol.tsv
+#######################################################################
+
+awk -F'\t' '{
+    key = $23"\t"$1"\t"$12
+    if (!(key in seen)) {
+        seen[key] = $11
+    } else {
+        if (seen[key] !~ "(^|,)"$11"(,|$)") {
+            seen[key] = seen[key] "," $11
+        }
+    }
+}
+END {
+    for (k in seen) {
+        print k "\t" seen[k]
+    }
+}' variant_cancer_map.allcol.tsv | sort 》 variant_cancer_map.infocol.tsv
+
+
+33333333333333333333333333333333333333333333333333333333333333333333333333333333333
+
