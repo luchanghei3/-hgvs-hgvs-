@@ -53,3 +53,6 @@ liuluchang@c1:~/processinput$ head matched_cosmiccontrol.tsv
 11:g.108253990G>A       chr11:g.108253990G>A    5       1461688 3.4207026e-06
 
 
+#######################################################################################
+annotate_new.awk
+awk -f annotate_cancer.awk variant_cancer_map.infocol.tsv matched_cosmiccontrol.tsv variant_cancer_map_cn.tsv sorted_cancer.af.new.vcf > sorted_cancer.af.annotated.vcf
