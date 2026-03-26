@@ -1,0 +1,11 @@
+bedtools intersect -a variants.2B.bed -b genes.gtf -wa -wb > annotated.raw.tsv
+
+
+liuluchang@c1:~/processinput$ awk -F'\t' '
+{
+    match($0, /gene_name "([^"]+)"/, a)
+    gene = a[1]
+    print $1, $2+1, $4, $5, gene
+}' OFS='\t' annotated.raw.tsv > annotated.gene.tsv
+
+发现一个突变对应多个基因
